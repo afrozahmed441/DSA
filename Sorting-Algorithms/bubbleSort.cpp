@@ -42,7 +42,7 @@ void opBubbleSort(int arr[], int n){
             }
         }
 
-        if(swapped == true) break;
+        if(swapped == false) break;
 
     }
 }
