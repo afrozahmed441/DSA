@@ -13,7 +13,7 @@ using namespace std;
 
 void bubbleSort(int arr[], int n){
 
-    /// in each iteration of i, the largest element in the array is placed at its correct position in array
+    /// in each iteration of i, the ith largest element in the array is placed at its correct position in array
     for(int i = 0; i < n-1; i++){
         for(int j = 0; j < n-i-1; j++){
             /// compare adjacent element in the array
@@ -27,6 +27,22 @@ void bubbleSort(int arr[], int n){
 void display(int arr[], int n){
     for(int i = 0; i < n; i++) cout << arr[i] << " ";
     cout << endl;
+}
+
+/// Optimised Bubble Sort for O(N) Best Case
+/// When input array is already sorted
+void opBubbleSort(int arr[], int n){
+    for(int i = 0; i < n-1; i++){
+
+        bool swapped = false;
+        for(int j = 0; j < n-i-1; j++){
+            if(arr[j] > arr[j+1]){
+                swapped = true;
+                swap(arr[j], arr[j+1]);
+            }
+        }
+
+    }
 }
 
 int main() {
