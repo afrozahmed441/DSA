@@ -25,7 +25,8 @@ using namespace std;
 
 /// insertion sort function
 void insertionSort(int arr[], int n){
-
+    /// The elements from j to i are sorted and elements from i+1 to n are unsorted
+    /// In each iteration we pick a element from unsorted array and place it in the sorted array in its correct position
     for(int i = 1; i < n; i++){
         int k = arr[i];
         int j = i - 1;
