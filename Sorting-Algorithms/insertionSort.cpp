@@ -7,11 +7,11 @@ using namespace std;
 /// In insertion sort, the array is splited into two halfs virtually, one half is sorted and another half is unsorted
 
 /// Algo :
-/// 1. start iterating from the second element in the array
+/// 1. start iterating from the second element in the array, because only one element in the array is already sorted
 /// 2. we store the current element in a variable (k in our program)
 /// 3. we compare the before element(predecessor) with the current element 
 /// 4. if current element is smaller than its predecessor then we move the predecessor one position up in the array
-/// 5. repeat 3 and 4 steps until the current element is greater than its predecessor
+/// 5. repeat 3 and 4 steps until the current element is greater than its predecessor or out of index (j is less than 0)
 /// 6. and place the current element in the correct position.
 
 /// Best Case Time Complexcity : O(N), Where N is number of elements in the array
