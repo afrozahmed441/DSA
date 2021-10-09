@@ -19,7 +19,7 @@ using namespace std;
 /// Auxiliary Space : O(1)
 
 /// Best Case occurs when the array is already sorted
-/// It is in-place 
+/// It is in-place and stable
 
 */
 
