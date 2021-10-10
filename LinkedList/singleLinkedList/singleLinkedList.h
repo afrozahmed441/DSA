@@ -1,8 +1,6 @@
 #ifndef _SINGLELINKEDLIST_
 #define _SINGLELINKEDLIST_
 
-#include <iostream>
-
 struct node {
     int data;
     node *next;
