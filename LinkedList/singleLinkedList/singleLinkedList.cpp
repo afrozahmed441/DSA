@@ -37,7 +37,9 @@ void singleLinkedList::insertAtEnd(int data){
 /// if head is null then returns -1
 int singleLinkedList::deleteAtBegin(){
     int data;
-    if(head == NULL) return -1;
+    /// no nodes in the linked list
+    if(head == NULL) data = -1;
+    /// one or more than one node in the linked list (in this case we also cover when there is only one node in the linked list)
     else {
         node *temp = head;
         data = temp->data;
@@ -52,7 +54,17 @@ int singleLinkedList::deleteAtBegin(){
 /// if head is null then returns -1
 int singleLinkedList::deleteAtEnd(){
     int data;
-    if(head == NULL) return -1;
+    /// no nodes in the linked list
+    if(head == NULL) data = -1;
+
+    /// when there is only one node in the linked list
+    if(head->next == NULL) {
+        node *temp = head;
+        data = head->data;
+        head = head->next;
+        delete(temp);
+    }
+    /// more than one node in the linked list
     else {
         node *temp = head;
         while(temp->next->next != NULL) temp = temp->next;
