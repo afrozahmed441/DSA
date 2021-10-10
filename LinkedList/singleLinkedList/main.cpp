@@ -16,6 +16,10 @@ int main(){
     cout << "[Deleted node data] : " << l1.deleteAtEnd() << endl;
     cout << "[After Delete] : ";
     l1.printList();
+    cout << "[Deleted node data] : " << l1.deleteAtBegin() << endl;
+    cout << "[Deleted node data] : " << l1.deleteAtEnd() << endl;
+    cout << "[Deleted node data] : " << l1.deleteAtEnd() << endl; 
+    l1.printList();
 
 
  return 0;
