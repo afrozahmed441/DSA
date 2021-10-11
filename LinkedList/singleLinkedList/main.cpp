@@ -30,6 +30,8 @@ int main(){
     l1.insert(4, 4);
     cout << "[Linked List] : ";
     l1.printList();
+    cout << "[Search node found] : ";
+    cout << l1.search(3) << endl;
 
  return 0;
 }
