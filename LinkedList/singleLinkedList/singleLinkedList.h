@@ -21,6 +21,7 @@ public:
     void insert(int, int);
     int deleteAtBegin();
     int deleteAtEnd();
+    int search(int);
     void printList();
 };
 
