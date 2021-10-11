@@ -99,6 +99,27 @@ int singleLinkedList::deleteAtEnd(){
     return data;
 }
 
+/// deleteNode functions deletes the node at position (pos) in the linked list
+int singleLinkedList::deleteNode(int pos){
+    int data;
+    if(head == NULL) data = -1;
+    else {
+        node *temp = head;
+        int c = 1;
+        while(temp != NULL && c != pos-1) {
+            temp = temp->next;
+            c++;
+        }
+        
+        if(temp == NULL) return -1;
+        node *n = temp->next;
+        data = n->data;
+        temp->next = temp->next->next;
+        delete(n);
+    }
+    return data;
+}
+
 /// search function finds the node in the linked list if present and returns the position of the node in the linked list
 /// if the node is not present in the linked list then it returns -1
 int singleLinkedList::search(int data) {
