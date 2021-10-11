@@ -33,6 +33,29 @@ void singleLinkedList::insertAtEnd(int data){
     }
 }
 
+/// insert a node with given data at give pos in the linked list
+void singleLinkedList::insert(int pos, int data){
+    node *newNode = createNewNode(data);
+    if(pos == 1){
+        newNode->next = head;
+        head = newNode;
+    }
+
+    else {
+        node *temp = head;
+        int c = 1;
+        while(temp != NULL && c != pos-1) {
+            temp = temp->next;
+            c++;
+        }
+        
+        if(temp == NULL) return;
+
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
+}
+
 /// returns the deleted node data, if head is not null
 /// if head is null then returns -1
 int singleLinkedList::deleteAtBegin(){
