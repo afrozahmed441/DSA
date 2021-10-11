@@ -18,6 +18,7 @@ public:
     node *createNewNode(int);
     void insertAtBegin(int);
     void insertAtEnd(int);
+    void insert(int, int);
     int deleteAtBegin();
     int deleteAtEnd();
     void printList();
