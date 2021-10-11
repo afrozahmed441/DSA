@@ -48,7 +48,7 @@ void singleLinkedList::insert(int pos, int data){
             temp = temp->next;
             c++;
         }
-        
+
         if(temp == NULL) return;
 
         newNode->next = temp->next;
@@ -99,7 +99,22 @@ int singleLinkedList::deleteAtEnd(){
     return data;
 }
 
-void singleLinkedList::printList(){
+/// search function finds the node in the linked list if present and returns the position of the node in the linked list
+/// if the node is not present in the linked list then it returns -1
+int singleLinkedList::search(int data) {
+    int pos = 1;
+    node *temp = head;
+    while(temp != NULL){
+        if(temp->data == data) return pos;
+        else {
+            pos++;
+            temp = temp->next;
+        }
+    }
+    return -1;
+}
+
+void singleLinkedList::printList() {
     if(head == NULL) cout << "Linked List is empty" << endl;
     else {
         node *temp = head;
