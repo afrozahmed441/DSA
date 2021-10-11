@@ -21,6 +21,15 @@ int main(){
     cout << "[Deleted node data] : " << l1.deleteAtEnd() << endl; 
     l1.printList();
 
+    l1.insert(1, 1);
+    l1.insert(1, 2);
+    cout << "[Linked List] : ";
+    l1.printList();
+    l1.insertAtEnd(3);
+    l1.insertAtEnd(5);
+    l1.insert(4, 4);
+    cout << "[Linked List] : ";
+    l1.printList();
 
  return 0;
 }
