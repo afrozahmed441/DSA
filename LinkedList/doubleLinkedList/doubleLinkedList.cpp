@@ -93,6 +93,21 @@ int DoubleLinkedList::deleteAtEnd() {
     return data;
 }
 
+/// Search Function, finds the node with given data in the double linked list. 
+/// if the node is present in the double linked list returns position of the node in the linked list, else returns -1
+int DoubleLinkedList::search(int data){
+        node *temp = head;
+        int pos = 1;
+        while(temp != NULL){
+            if(temp->data == data) return pos;
+            else {
+                pos++;
+                temp = temp->next;
+            }
+        }
+    return -1;
+}
+
 void DoubleLinkedList::printDList() {
     if(head == NULL) cout << "Double Linked List is Empty" << endl;
     else {
