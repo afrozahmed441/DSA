@@ -96,6 +96,22 @@ int CircularLinkedList::deleteAtEnd() {
     return data;
 }
 
+/// Search Function, given a data the search function finds a node with given data in the ciruclar linked list
+/// if the node is present in the circular linked list then it returns the position of the node in the circular linked list
+/// if the node is not present in the circular linked list then it returns -1
+int CircularLinkedList::search(int data) {
+        node *temp = head;
+        int pos = 1;
+        while(temp != NULL) {
+            if(temp->data == data) return pos;
+            else {
+                pos++;
+                temp = temp->next;
+            }
+        }
+        return -1;
+}
+
 void CircularLinkedList::printCList() { 
     if(head == NULL) cout << "Circular Linked List is Empty" << endl;
     else {
