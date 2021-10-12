@@ -19,5 +19,11 @@ int main(){
     cout << "[Deleted Node] : " << dl.deleteAtEnd() << endl;
     dl.printDList();
 
+    dl.insertAtBegin(1);
+    dl.insertAtBegin(2);
+    dl.insertAtEnd(3);
+    dl.printDList();
+    cout << "[Search Node Found] : " << dl.search(2) << endl;
+
   return 0;
 }
