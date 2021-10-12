@@ -20,5 +20,13 @@ int main(){
     cout << "[Deleted Node] : " << cl.deleteAtBegin() << endl;
     cout << "[Circular Linked List] : ";
     cl.printCList();
+
+    cl.insertAtBegin(1);
+    cl.insertAtEnd(2);
+    cl.insertAtEnd(3);
+    cout << "[Circular Linked List] : ";
+    cl.printCList();
+    cout << "[Search Node Found] : " << cl.search(2) << endl;
+    cout << "[Search Node Found] : " << cl.search(3) << endl;
     return 0;
 }
