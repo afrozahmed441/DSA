@@ -45,6 +45,38 @@ void CircularLinkedList::insertAtEnd(int data) {
     }
 }
 
+/// insert functions, can insert a node with given data at given position in the circular linked list
+void CircularLinkedList::insert(int data, int pos) {
+    node *newNode = createNewNode(data);
+    /// insert at head
+    if(pos == 1) {
+        newNode->next = head;
+        head = newNode;
+        /// update the tail to point to updated head
+        if(tail == NULL) tail = head;
+        else tail->next = head;
+    }
+    /// insert new to head in the circular linked list
+    else if(pos == 2 && head != NULL) {
+        newNode->next = head->next;
+        head->next = newNode;
+    }
+    /// insert any where, but not at head or next to the head
+    else {
+        node *temp = head;
+        int c = 1;
+        do {
+            temp = temp->next;
+            c++;
+        }while(temp != head && c != pos-1);
+
+        if(temp == head) return;
+
+        newNode->next = temp->next;
+        temp->next = newNode;
+    }
+}
+
 int CircularLinkedList::deleteAtBegin() {
     int data;
     /// no nodes in the circular linked list
