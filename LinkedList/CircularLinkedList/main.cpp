@@ -28,5 +28,13 @@ int main(){
     cl.printCList();
     cout << "[Search Node Found] : " << cl.search(2) << endl;
     cout << "[Search Node Found] : " << cl.search(3) << endl;
+
+    cl.insert(4, 4);
+    cl.insert(5, 5);
+    cout << "[Circular Linked List] : ";
+    cl.printCList();
+    cl.insert(6, 2);
+    cout << "[Circular Linked List] : ";
+    cl.printCList();
     return 0;
 }
