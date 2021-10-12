@@ -41,11 +41,12 @@ void DoubleLinkedList::insertAtEnd(int data) {
 /// insert Function, can insert node with given data at given position (pos) in the double linked list
 void DoubleLinkedList::insert(int data, int pos) {
     node *newNode = createNewNode(data);
-    if(pos == 1) {
+    if(pos == 1 && head != NULL) {
         newNode->next = head;
         head->prev = newNode;
         head = newNode;
-    } 
+    }
+    else if(head == NULL && pos == 1) head = newNode; 
     else {
         int c = 1;
         node *temp = head;
