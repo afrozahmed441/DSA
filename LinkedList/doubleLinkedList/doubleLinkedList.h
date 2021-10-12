@@ -17,6 +17,7 @@ public:
     void insertAtEnd(int);
     int deleteAtBegin();
     int deleteAtEnd();
+    int search(int);
     void printDList();
 };
 
