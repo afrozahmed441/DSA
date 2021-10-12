@@ -38,6 +38,29 @@ void DoubleLinkedList::insertAtEnd(int data) {
     }
 }
 
+/// insert Function, can insert node with given data at given position (pos) in the double linked list
+void DoubleLinkedList::insert(int data, int pos) {
+    node *newNode = createNewNode(data);
+    if(pos == 1) {
+        newNode->next = head;
+        head->prev = newNode;
+        head = newNode;
+    } 
+    else {
+        int c = 1;
+        node *temp = head;
+        while(temp != NULL && c != pos-1) {
+            temp = temp->next;
+            c++;
+        }
+        if(temp == NULL) return;
+
+        newNode->next = temp->next;
+        temp->next = newNode;
+        newNode->prev = temp;
+    }
+}
+
 /// returns the deleted node data if head is not NULL
 /// if head is NULL, then returns -1
 int DoubleLinkedList::deleteAtBegin() {
