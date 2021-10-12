@@ -24,5 +24,10 @@ int main(){
     dl.insert(3, 1);
     dl.printDList();
     cout << "[Search Node Found] : " << dl.search(2) << endl;
+    cout << "[Deleted Node] : " << dl.deleteNode(1) << endl;
+    cout << "[Deleted Node] : " << dl.deleteNode(2) << endl;
+    dl.printDList();
+    cout << "[Deleted Node] : " << dl.deleteNode(1) << endl;
+    dl.printDList();
   return 0;
 }
