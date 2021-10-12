@@ -20,10 +20,9 @@ int main(){
     dl.printDList();
 
     dl.insertAtBegin(1);
-    dl.insertAtBegin(2);
-    dl.insertAtEnd(3);
+    dl.insert(2, 2);
+    dl.insert(3, 1);
     dl.printDList();
     cout << "[Search Node Found] : " << dl.search(2) << endl;
-
   return 0;
 }
