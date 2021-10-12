@@ -116,6 +116,39 @@ int DoubleLinkedList::deleteAtEnd() {
     return data;
 }
 
+/// Delete Node Function, deletes the node at a given position in the double linked list and returns the data of the node
+/// if the given position is greater than double linked list length, then returns -1
+int DoubleLinkedList::deleteNode(int pos) {
+    int data;
+    if(head == NULL) data = -1;
+
+    else if(pos == 1 ) {
+        node *n = head;
+        data = head->data;
+        head = head->next;
+        delete(n);
+    }
+    
+    else {
+        int c = 1;
+        node *temp = head;
+        while(temp != NULL && c != pos-1) {
+            temp = temp->next;
+            c++;
+        }
+        
+        if(temp == NULL) return -1;
+
+        node *n = temp->next;
+        data = n->data;
+        n->prev = NULL;
+        temp->next = n->next;
+        n->next = NULL;
+        delete(n);
+    }
+    return data;
+}
+
 /// Search Function, finds the node with given data in the double linked list. 
 /// if the node is present in the double linked list returns position of the node in the linked list, else returns -1
 int DoubleLinkedList::search(int data){
@@ -134,20 +167,25 @@ int DoubleLinkedList::search(int data){
 void DoubleLinkedList::printDList() {
     if(head == NULL) cout << "Double Linked List is Empty" << endl;
     else {
+        /// for reverse travel 
+        bool canRev = false;
         node *temp = head;
         cout << "[Normal order] : ";
-        while(temp->next != NULL){
+        while(temp->next != NULL) {
             cout << temp->data << "->";
             temp = temp->next;
+            canRev = true;
         }
         cout << temp->data << endl;
 
         /// printing the double linked list in reverse using the prev pointer
-        cout << "[Reverse order] : ";
-        while(temp->prev != NULL){
-            cout << temp->data << "->";
-            temp = temp->prev;
+        if(canRev) {
+            cout << "[Reverse order] : ";
+            while(temp->prev != NULL){
+                cout << temp->data << "->";
+                temp = temp->prev;
+            }
+            cout << temp->data << endl;
         }
-        cout << temp->data << endl;
     }
 }
