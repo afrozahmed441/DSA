@@ -36,5 +36,25 @@ int main(){
     cl.insert(6, 2);
     cout << "[Circular Linked List] : ";
     cl.printCList();
+    
+    CircularLinkedList cl2;
+    cl2.insertAtBegin(1);
+    cl2.insertAtEnd(2);
+    cl2.insert(3, 3);
+    cl2.insert(4, 4);
+    cl2.insertAtEnd(5);
+    cout << "[Circular Linked List 2] : ";
+    cl2.printCList();
+
+    cout << "[Deleted Node] : " << cl2.deleteAtBegin() << endl;
+    cout << "[Deleted Node] : " << cl2.deleteAtEnd() << endl;
+    cout << "[Deleted Node] : " << cl2.deleteNode(1) << endl;
+    cout << "[Circular Linked List 2] : ";
+    cl2.printCList();
+
+    cout << "[Deleted Node] : " << cl2.deleteNode(1) << endl;
+    cout << "[Deleted Node] : " << cl2.deleteNode(1) << endl;
+    cout << "[Circular Linked List 2] : ";
+    cl2.printCList();
     return 0;
 }
