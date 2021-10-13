@@ -127,6 +127,7 @@ int DoubleLinkedList::deleteNode(int pos) {
         node *n = head;
         data = head->data;
         head = head->next;
+        if(head != NULL) head->prev = NULL;
         delete(n);
     }
     
@@ -168,25 +169,20 @@ int DoubleLinkedList::search(int data){
 void DoubleLinkedList::printDList() {
     if(head == NULL) cout << "Double Linked List is Empty" << endl;
     else {
-        /// for reverse travel 
-        bool canRev = false;
         node *temp = head;
         cout << "[Normal order] : ";
         while(temp->next != NULL) {
             cout << temp->data << "->";
             temp = temp->next;
-            canRev = true;
         }
         cout << temp->data << endl;
 
         /// printing the double linked list in reverse using the prev pointer
-        if(canRev) {
-            cout << "[Reverse order] : ";
-            while(temp->prev != NULL){
-                cout << temp->data << "->";
-                temp = temp->prev;
-            }
-            cout << temp->data << endl;
+        cout << "[Reverse order] : ";
+        while(temp->prev != NULL){
+            cout << temp->data << "->";
+            temp = temp->prev;
         }
+        cout << temp->data << endl;
     }
 }
