@@ -33,7 +33,7 @@ int main(){
     cout << "[Search node found] : ";
     cout << l1.search(3) << endl;
 
-    cout << "[Deleted Node] : " << l1.deleteNode(3) << endl;
+    cout << "[Deleted Node] : " << l1.deleteNode(1) << endl;
     cout << "[Linked List] : ";
     l1.printList();
 
