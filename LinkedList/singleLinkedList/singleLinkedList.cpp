@@ -102,7 +102,17 @@ int singleLinkedList::deleteAtEnd(){
 /// deleteNode functions deletes the node at position (pos) in the linked list
 int singleLinkedList::deleteNode(int pos){
     int data;
+    /// no nodes in the linked list
     if(head == NULL) data = -1;
+    /// only one node in the linked list or more than one node, insert at head
+    else if(pos == 1) {
+        node *n = head;
+        data = n->data;
+        head = head->next;
+        delete(n);    
+    }
+
+    /// more than one node, insert at any where except at head
     else {
         node *temp = head;
         int c = 1;
