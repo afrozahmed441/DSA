@@ -19,7 +19,7 @@ void CircularLinkedList::insertAtBegin(int data) {
     if(head == NULL) {
         head = newNode;
         tail = head;
-        head->next = head;
+        tail->next = head;
     }
 
     else{
@@ -35,7 +35,7 @@ void CircularLinkedList::insertAtEnd(int data) {
     if(head == NULL) {
         head = newNode;
         tail = head;
-        head->next = head;
+        tail->next = head;
     }
 
     else{
@@ -53,7 +53,10 @@ void CircularLinkedList::insert(int data, int pos) {
         newNode->next = head;
         head = newNode;
         /// update the tail to point to updated head
-        if(tail == NULL) tail = head;
+        if(tail == NULL) {
+            tail = head;
+            tail->next = head;
+        }
         else tail->next = head;
     }
     /// insert new to head in the circular linked list
@@ -69,11 +72,12 @@ void CircularLinkedList::insert(int data, int pos) {
             temp = temp->next;
             c++;
         }while(temp != head && c != pos-1);
-
+    
         if(temp == head) return;
 
         newNode->next = temp->next;
         temp->next = newNode;
+        if(newNode->next == head) tail = newNode;
     }
 }
 
@@ -123,6 +127,54 @@ int CircularLinkedList::deleteAtEnd() {
         data = n->data;
         temp->next = head;
         tail = temp;
+        delete(n);
+    }
+    return data;
+}
+
+/// Delete Node Function, delete a node at given position in the circular linked list
+int CircularLinkedList::deleteNode(int pos) {
+    int data;
+    /// no nodes in the circular linked list
+    if(head == NULL) data = -1;
+
+    /// delete head node 
+    else if(pos == 1) {
+        node *n = head;
+        data = head->data;
+        if(head->next == head){
+            head = NULL;
+            tail = NULL;
+        }
+        else {
+            head = head->next;
+            tail->next = head;
+        }
+        delete(n);
+    }
+
+    /// more than one node, and deleting the second node
+    else if(pos == 2 && head != NULL && head->next != head) {
+        node *n = head->next;
+        data = n->data;
+        head->next = head->next->next;
+        delete(n);
+    } 
+
+    else {
+        node *temp = head;
+        int c = 1;
+
+        do {
+            temp = temp->next;
+            c++;
+        }while(c != pos - 1 && temp != head);
+
+        if (temp == head) return -1;
+
+        node *n = temp->next;
+        data = n->data;
+        temp->next = temp->next->next;
         delete(n);
     }
     return data;
