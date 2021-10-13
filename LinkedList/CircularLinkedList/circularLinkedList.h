@@ -17,6 +17,7 @@ public:
     void insert(int, int);
     int deleteAtBegin();
     int deleteAtEnd();
+    int deleteNode(int);
     int search(int);
     void printCList();
 };
