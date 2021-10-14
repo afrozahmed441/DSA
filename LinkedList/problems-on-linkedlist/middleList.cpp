@@ -70,6 +70,8 @@ void middleNode(node *head) {
      * slow pointer moves one node at a time
      * fast pointer moves two nodes at a time
      * when fast next is NULL or when fast pointer reaches NULL (end of the list) then slow points to middle node in the linked list
+     * Note: In Case of even Lenght Linked List fast pointer reaches NULL when slow pointer reaches middle Node.
+     * Note: In Case of odd Lenght Linked List fast pointer reaches last node when slow pointer reaches middle Node.
     */
     if(head == NULL) cout << -1 << endl;
     else {
