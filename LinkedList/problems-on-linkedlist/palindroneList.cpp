@@ -40,6 +40,7 @@ void print(node *head) {
 }
 
 /// --------------------------------- Main Logic ----------------------------------
+/// using stack data structure
 bool isPalindrone(node *head) {
 
     if(head == NULL) return true;
@@ -62,18 +63,60 @@ bool isPalindrone(node *head) {
 
 }
 
+/// reverse linked list 
+node *reverseList(node *head) {
+    if(head == NULL || head->next == NULL) return head;
+
+    node *newHead = reverseList(head->next);
+    node *rTail = head->next;
+    rTail->next = head;
+    head->next = NULL;
+    return newHead;
+}
+
+/// using reverse, and reverse the second half of the linked list 
+bool isPalindroneL(node *head) {
+    if(head == NULL) return true;
+
+    /// find the middle 
+    node *s = head, *f = head;
+    while(f->next != NULL && f->next->next != NULL) {
+        s = s->next;
+        f = f->next->next;
+    }
+    /// reverse the second half of the linked list
+    node *rev = reverseList(s->next);
+    node *cur = head;
+    
+    /// compare the second half of the linked list and first half 
+    while(rev != NULL) {
+        if(rev->data != cur->data) return false;
+        rev = rev->next;
+        cur = cur->next;
+    }
+
+    return true;
+}
+
 int main() {
 
     node *head = new node(1);
     head->next = new node(2);
-    head->next->next = new node(2);
-    head->next->next->next = new node(1);
+    head->next->next = new node(3);
+    head->next->next->next = new node(2);
+    head->next->next->next->next = new node(1);
 
+    cout << "------------------ Using stack method -------------------------" << endl;
     cout << "[Linked List] : ";
     print(head);
     cout << "is Palindrone : " << isPalindrone(head) << endl;
     cout << endl;
 
+    cout << "------------------ Using reverse method -------------------------" << endl;
+    cout << "[Linked List] : ";
+    print(head);
+    cout << "is Palindrone : " << isPalindroneL(head) << endl;
+    cout << endl;
 
  return 0;
 }
