@@ -19,12 +19,18 @@ void Stack::push(int data) {
 }
 
 int Stack::pop() {
-    if(top == -1) cout << "Stack underflow" << endl;
+    if(top == -1) {
+        cout << "Stack underflow" << endl;
+        return -1;
+    }
     return arr[top--];
 }
 
 int Stack::peek() {
-    if(top == -1) cout << "Stack is empty" << endl;
+    if(top == -1) {
+        cout << "Stack is empty" << endl;
+        return -1;
+    }
     return arr[top];
 }
 
