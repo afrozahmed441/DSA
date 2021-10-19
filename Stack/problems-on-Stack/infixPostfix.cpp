@@ -22,6 +22,22 @@ using namespace std;
 */
 
 //// ----------------------- Main Logic --------------------------------------
+/**
+ * Algo : 
+ * Create a empty stack
+ * Travel through the infix expression from left to right
+ * if the character in the infix expression is operand, then print it on to the console
+ * if it is a '(' then push it into the stack
+ * if it is a ')' then pop the stack until stack top is '(' then pop the stack top one last time to remove '('
+ * if it is a operator then 
+ * if the stack is empty then push the operator to the stack
+ * if the stack is not empty then compare the top of the stack with the operator
+ * if the operator has higher precedence then push the operator into the stack
+ * if the operator has lower precedence than stack top, then pop the stack and print on the console until we find a operator with the higher precedence or until the stack is empty
+ * if the operator has equal precedence then use the associativity and pop the stack until we find a operator  with higher precedence or until the stack is empty 
+ * After traveling throught the whole infix expression, check if the stack is empty 
+ * if the stack is not empty then print the stack content on to the console.
+*/
 void infixToPostfix(const string &s) {
 
     int i = 0;
@@ -33,7 +49,7 @@ void infixToPostfix(const string &s) {
         else if(s[i] == '(') st.push(s[i]); 
 
         else if(s[i] == ')') {
-            while(st.top() != '(') {
+            while(!st.empty() && st.top() != '(') {
                 cout << st.top();
                 st.pop();
             }
