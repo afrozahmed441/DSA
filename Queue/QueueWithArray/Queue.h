@@ -7,7 +7,7 @@ class Queue {
     int rear;
     int *que;
     int cap;
-    
+
 public:
     Queue(int);
     void enqueue(int);
@@ -17,6 +17,7 @@ public:
     int size();
     bool isEmpty();
     bool isFull();
+    ~Queue()
 
 };
 

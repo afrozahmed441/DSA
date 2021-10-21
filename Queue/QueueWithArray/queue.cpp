@@ -61,3 +61,7 @@ bool Queue::isEmpty() {
 bool Queue::isFull() {
     return (rear+1 == cap);
 }
+
+Queue::~Queue() {
+    delete(que);
+}
