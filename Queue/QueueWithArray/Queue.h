@@ -17,7 +17,7 @@ public:
     int size();
     bool isEmpty();
     bool isFull();
-    ~Queue()
+    ~Queue();
 
 };
 
