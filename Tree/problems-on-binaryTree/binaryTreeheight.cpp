@@ -48,6 +48,8 @@ Node *createRandomBinaryTree(int n) {
 /// 4. Then we will be taking the max of right sub tree and left sub tree and adding one to it and return it to parent call.
 /// 5. At lest it will return the height of the tree to the parent caller. 
 
+/// Time Complexcity : O(N), where N is number of nodes 
+/// Auxiliary Space  : O(H), where H is height of the binary tree
 int height(Node *root) {
     /// root is NULL
     if(root == NULL) return 0;
