@@ -44,11 +44,11 @@ int main() {
 
     cout << "--------------- using recersive solution --------------------" << endl;
     cout << "Test Case 1 : " << endl;
-    cout << isBSTRec(root, INT_MIN, INT_MAX) << endl;
+    cout << isBSTRec(root, LONG_MIN, LONG_MAX) << endl;
 
     cout << "--------------- using inorder solution --------------------" << endl;
     cout << "Test Case 1 : " << endl;
-    int prev = INT_MIN;
+    int prev = LONG_MIN;
     cout << isBSTIn(root, prev) << endl;
 
 
