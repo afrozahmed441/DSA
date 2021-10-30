@@ -17,6 +17,7 @@ public:
     Node *createNewNode(int);
     void insertNewNode(int);
     Node *insertNewNodeHelper(Node *, Node *);
+    void insertNewNodeIte(int);
     bool searchNode(int);
     void printInorder();
 };

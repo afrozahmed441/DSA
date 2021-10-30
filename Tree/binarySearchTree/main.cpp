@@ -16,6 +16,11 @@ int main() {
     bst.printInorder();
     cout << endl;
 
+    bst.insertNewNodeIte(16);
+    cout << "Print Inorder of BST : ";
+    bst.printInorder();
+    cout << endl;
+
     int data = 5;
     cout << "Find Node " << data << " : " << bst.searchNode(data); 
     cout << endl;

@@ -27,6 +27,25 @@ Node *BinarySearchTree::insertNewNodeHelper(Node *root, Node *newNode) {
  return root;
 }
 
+void BinarySearchTree::insertNewNodeIte(int data) {
+    Node *newNode = createNewNode(data);
+    if(root == NULL) root = newNode;
+
+    Node *par = NULL;
+    Node *cur = root;
+    while(cur != NULL) {
+        par = cur;
+        if(cur->data > data) cur = cur->left;
+        else if(cur->data < data) cur = cur->right;
+        else return;
+    }
+
+    /// this condition is taken care at start, so no need but still i like to metion :)
+    if(par == NULL) return;
+    else if(par->data > data) par->left = newNode;
+    else par->right = newNode;
+}
+
 bool BinarySearchTree::searchNode(int data) {
     Node *temp = root;
     while(temp != NULL) {
