@@ -18,6 +18,9 @@ public:
     void insertNewNode(int);
     Node *insertNewNodeHelper(Node *, Node *);
     void insertNewNodeIte(int);
+    void deleteNode(int);
+    Node *deleteNodeHelper(Node *, int);
+    Node *getSuccessor(Node *);
     bool searchNode(int);
     void printInorder();
 };

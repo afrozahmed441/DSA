@@ -46,6 +46,40 @@ void BinarySearchTree::insertNewNodeIte(int data) {
     else par->right = newNode;
 }
 
+void BinarySearchTree::deleteNode(int data) {
+    root = deleteNodeHelper(root, data);
+}
+
+Node *BinarySearchTree::getSuccessor(Node *root) {
+    root = root->right;
+    while(root != NULL && root->left != NULL) root = root->left;
+    return root;
+}
+
+Node *BinarySearchTree::deleteNodeHelper(Node *root, int data) {
+    if(root == NULL) return root;
+    else if(root->data > data) root->left = deleteNodeHelper(root->left, data);
+    else if(root->data < data) root->right = deleteNodeHelper(root->right, data);
+    else {
+        if(root->left == NULL) {
+            Node *temp = root->right;
+            delete root;
+            return temp;
+        }
+        else if(root->right == NULL) {
+            Node *temp = root->left;
+            delete root;
+            return temp; 
+        }
+        else {
+            Node *suc = getSuccessor(root);
+            root->data = suc->data;
+            root->right = deleteNodeHelper(root->right, suc->data);
+        }
+    }
+    return root;
+}
+
 bool BinarySearchTree::searchNode(int data) {
     Node *temp = root;
     while(temp != NULL) {

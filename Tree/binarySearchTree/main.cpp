@@ -24,6 +24,11 @@ int main() {
     int data = 5;
     cout << "Find Node " << data << " : " << bst.searchNode(data); 
     cout << endl;
-    
+
+    bst.deleteNode(10);
+    cout << "Print Inorder of BST : ";
+    bst.printInorder();
+    cout << endl;
+
  return 0;
 }
