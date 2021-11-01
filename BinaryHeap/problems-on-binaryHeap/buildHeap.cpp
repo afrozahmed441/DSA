@@ -17,16 +17,21 @@ void printArr(int arr[], int n) {
 
 //// ---------------------- Main Logic ---------------------------------------
 void minHeapify(int arr[], int i, int size) {
+    /// get left and right child 
     int lv = (2*i+1), rv = (2*i+2);
     int s = i;
+    /// compare left child with root 
     if(lv < size && arr[lv] < arr[s]) s = lv;
+    /// compare right child with root
     if(rv < size && arr[rv] < arr[s]) s = rv;
+    /// if root is not the smallest element
     if(s != i) {
         swap(arr[i], arr[s]);
         minHeapify(arr, s, size);
     } 
 }
 void buildMinHeap(int arr[], int n) {
+    /// check internal nodes are min heap or not 
     for(int i = (n-2)/2; i>=0; i--) minHeapify(arr, i, n);
 }
 
