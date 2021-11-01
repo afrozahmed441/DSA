@@ -12,6 +12,12 @@ public:
     int getRightChildInd(int);
     int getParentInd(int);
     void insert(int);
+    void minHeapify(int);
+    int getMin();
+    int extractMin();
+    void decreaseKey(int, int);
+    int deleteKey(int);
+    void printMinHeap();
 };
 
 #endif
