@@ -29,24 +29,39 @@ int leftRepInd(const string &s) {
  return -1;
 }
 
+/// another method 
+int leftRep(const string &s) {
+    const int SIZE = 26;
+    int res = -1;
+    bool arr[SIZE] = {false};
+    for(int i = s.size()-1; i >= 0; i--) {
+        if(arr[tolower(s[i])-'a']) res = i;
+        else arr[tolower(s[i]-'a')] = true;
+    }
+    return res;
+}
+
 int main() {
 
     string s = "abbcc";
     cout << "Test Case 1 : " << endl;
     cout << "string : " << s << endl;
     cout << "res : " << leftRepInd(s) << endl;
+    cout << "res : " << leftRep(s) << endl;
     cout << endl;
 
     string s2 = "abcd";
     cout << "Test Case 2 : " << endl;
     cout << "string : " << s2 << endl;
     cout << "res : " << leftRepInd(s2) << endl;
+    cout << "res : " << leftRep(s2) << endl;
     cout << endl;
 
     string s3 = "aabbccdd";
     cout << "Test Case 3 : " << endl;
     cout << "string : " << s3 << endl;
     cout << "res : " << leftRepInd(s3) << endl;
+    cout << "res : " << leftRep(s3) << endl;
     cout << endl;
 
  return 0;
